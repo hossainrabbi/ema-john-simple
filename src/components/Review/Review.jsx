@@ -27,7 +27,7 @@ const Review = () => {
         const saveCart = getDatabaseCart();
         const productKeys = Object.keys(saveCart);
 
-        fetch('http://localhost:8000/productByKeys', {
+        fetch('https://sleepy-cliffs-58288.herokuapp.com/productByKeys', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(productKeys),

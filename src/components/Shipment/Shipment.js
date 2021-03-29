@@ -17,7 +17,7 @@ const Shipment = () => {
             orderTime: new Date(),
         };
 
-        fetch('http://localhost:8000/addorder', {
+        fetch('https://sleepy-cliffs-58288.herokuapp.com/addorder', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(orderdetails),
