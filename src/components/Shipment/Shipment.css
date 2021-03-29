@@ -1,0 +1,17 @@
+.shipment-from {
+    max-width: 400px;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.shipment-from input {
+    display: block;
+    padding: 8px 10px;
+    width: 100%;
+    margin-top: 14px;
+    box-sizing: border-box;
+}
+
+.error {
+    color: red;
+}

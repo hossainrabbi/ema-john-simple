@@ -1,9 +1,9 @@
-.shop {
-  display: flex;
+.product-components {
+   display: flex;
 }
 .prodact-container {
-  width: 70%;
-  margin-left: 20px;
-  margin-right: 5px;
-  border-right: 1px solid #dddddd;
+   width: 70%;
+   margin-left: 20px;
+   margin-right: 5px;
+   border-right: 1px solid #dddddd;
 }
