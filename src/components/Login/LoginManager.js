@@ -25,11 +25,24 @@ export const handleGoogleSignIn = () => {
                 success: true,
             };
 
+            setUserToken();
             return signedUser;
         })
         .catch((err) => {
             const errorMessage = err.message;
             console.log(errorMessage);
+        });
+};
+
+const setUserToken = () => {
+    firebase
+        .auth()
+        .currentUser.getIdToken(true)
+        .then(function (idToken) {
+            localStorage.setItem('token', idToken);
+        })
+        .catch(function (error) {
+            console.log(error);
         });
 };
 

@@ -11,12 +11,13 @@ import './Shop.css';
 const Shop = () => {
     const [prodacts, setProdacts] = useState([]);
     const [cart, setCart] = useState([]);
+    const [search, setSearch] = useState('');
 
     useEffect(() => {
-        fetch('https://sleepy-cliffs-58288.herokuapp.com/products')
+        fetch(`http://localhost:8000/products?search=${search}`)
             .then((res) => res.json())
             .then((data) => setProdacts(data));
-    }, []);
+    }, [search]);
 
     useEffect(() => {
         const saveCart = getDatabaseCart();
@@ -30,6 +31,10 @@ const Shop = () => {
             .then((res) => res.json())
             .then((data) => setCart(data));
     }, []);
+
+    const handleSearch = (e) => {
+        setSearch(e.target.value);
+    };
 
     const handleClick = (prodact) => {
         const sameProduct = cart.find((pd) => pd.key === prodact.key);
@@ -52,6 +57,11 @@ const Shop = () => {
     return (
         <div className="product-components">
             <div className="prodact-container">
+                <input
+                    type="text"
+                    placeholder="Search Product"
+                    onChange={handleSearch}
+                />
                 {prodacts.map((prodact) => (
                     <Prodact
                         key={prodact.key}
